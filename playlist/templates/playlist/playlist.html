@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video</title>
+    <link rel="stylesheet" href="{% static 'Blog/css/bootstrap.min.css' %}">
+</head>
+<body data-bs-theme="dark">
+    
+  {% include 'firstapp/includes/header.html' %}
+
+    <main>
+        <h1 class="text-center">Video</h1>
+        <div class="d-flex gap-3 justify-content-center">
+          {% for video in videos %}
+            <div class="card " style="width: 20rem;">
+                <div class="card-body">
+                  <iframe class="w-100" src="https://www.youtube.com/embed/{{video.embed_code}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  <p class="card-text"> {{video.created_at }} </p>
+                  <p class="card-title"> {{video.title }} </p>
+                </div>
+              </div>
+          {% endfor %}
+        </div>
+    </main>
+
+</body>
+</html>

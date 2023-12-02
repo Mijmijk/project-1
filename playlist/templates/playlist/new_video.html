@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video</title>
+    <link rel="stylesheet" href="{% static 'Blog/css/bootstrap.min.css' %}">
+</head>
+<body data-bs-theme="dark">
+    
+  {% include 'firstapp/includes/header.html' %}
+
+    <main>
+        <h1 class="text-center">new Video</h1>
+        <form class="d-flex flex-column mx-auto text-danger btn-danger my-1 gap-3" style="max-width: 360px;" action="" method="post">{%csrf_token%}
+            <input class="form-control" type="text" placeholder="код вставки" name="embed_code">
+            <input class="form-control" type="text" placeholder="Name" name="title">
+            <button class="btn btn-danger" type="submit">Подтвердить</button>
+        </form>
+    </main>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %} ббббббб {% endblock %}
+{% block content %}
+			<h1 class="text-center">Ог Буда</h1>
+			<div class="d-flex justify-content-center">
+				{% for post in posts %}
+				<div class="card " style="min-width: 350px; max-width: 350px;">
+					<img src="{{ post.img.url }}" alt>
+					<div class="card-body">
+						<h5 class="card-title">{{ post.title }}</h5>
+						<p class="card-text"></p>
+						<form  action="{% url 'post_like' %}"
+							class="d-flex" method="post">{%csrf_token%}
+							<button class="bg-transparent border-0" type="submit">
+								<img style="width: 16px; filter: invert(0.8)"
+									src="{% static 'Blog/img/heart.png'%}">
+							</button>
+							<input type="hidden" value="{{post.id}}" name="post_id">
+						</form>
+						<span>{{ post.likes }}</span>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+{% endblock %}
